@@ -2,7 +2,7 @@ import { Github, Linkedin } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="relative py-12 border-t border-white/5">
+    <footer className="relative py-12 border-t border-[#1F1F1F]">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
@@ -10,7 +10,7 @@ export function Footer() {
               Balaram B
             </p>
             <p className="text-[#9CA3AF] text-xs font-medium uppercase tracking-[0.2em]">
-              Engineering Intelligent Systems
+              Built with Next.js and deployed on Vercel
             </p>
           </div>
 
@@ -35,7 +35,7 @@ export function Footer() {
 
           <div className="text-center md:text-right">
             <p className="text-[#9CA3AF] text-xs font-medium">
-              © {new Date().getFullYear()} — Built with Precision
+              © 2026 — Built with Precision
             </p>
           </div>
         </div>

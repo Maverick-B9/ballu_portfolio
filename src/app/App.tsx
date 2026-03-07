@@ -4,6 +4,7 @@ import { HeroSection } from './components/HeroSection';
 import { WhyIBuild } from './components/WhyIBuild';
 import { SystemImpact } from './components/SystemImpact';
 import { SystemsBuilt } from './components/SystemsBuilt';
+import { GitHubExplorer } from './components/GitHubExplorer';
 import { LeadershipTimeline } from './components/LeadershipTimeline';
 import { GitHubPanel } from './components/GitHubPanel';
 import { DeveloperTerminal } from './components/DeveloperTerminal';
@@ -57,6 +58,7 @@ export default function App() {
         <SystemImpact />
         <WhyIBuild />
         <SystemsBuilt />
+        <GitHubExplorer />
         <LeadershipTimeline />
         <Achievements />
         <SkillsSection />

@@ -33,70 +33,53 @@ export function LeadershipTimeline() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
+    const achievements = [
+        "Organized 12+ technical events and hackathons",
+        "Mentored student developers in Git workflows and system architecture",
+        "Built a 300+ member developer community",
+        "Hosted a live auction event used by 2500 students"
+    ];
+
     return (
-        <section id="leadership" className="relative py-24">
+        <section id="leadership" className="py-24 bg-[#0A0A0A]">
             <div className="max-w-[1200px] mx-auto px-6">
+                <div ref={ref} className="mb-16">
+                    <h2 className="text-[34px] font-bold text-white mb-4 tracking-tight">Leadership & Community</h2>
+                    <p className="text-[#9CA3AF] text-lg font-medium max-w-2xl">
+                        Driving technical excellence and building high-impact developer ecosystems.
+                    </p>
+                </div>
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="mb-20 text-center"
+                    className="p-10 rounded-[2.5rem] bg-[#151515] border border-[#1F1F1F] hover:border-[#6366F1]/30 transition-all duration-500 group relative overflow-hidden"
                 >
-                    <h2 className="text-3xl font-bold text-white mb-4">
-                        Leadership & Community
-                    </h2>
-                    <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto font-medium">
-                        Building ecosystems, mentoring developers, and organizing large-scale technical experiences.
-                    </p>
-                </motion.div>
+                    <div className="relative z-10">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+                            <div>
+                                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-[#6366F1] transition-colors">Secretary — Coding Club</h3>
+                                <p className="text-[#6366F1] font-bold text-sm uppercase tracking-widest">Maharaja Institute of Technology Mysore</p>
+                            </div>
+                            <div className="px-4 py-2 rounded-xl bg-[#6366F1]/10 border border-[#6366F1]/20 text-[#6366F1] text-xs font-bold uppercase tracking-widest whitespace-nowrap">
+                                2023 — Present
+                            </div>
+                        </div>
 
-                <div
-                    ref={ref}
-                    className="relative max-w-3xl mx-auto pl-8 md:pl-0"
-                >
-                    {/* Vertical Line */}
-                    <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-white/5" />
-
-                    <div className="space-y-16">
-                        {MILESTONES.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                                transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                                className={`relative flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                                    }`}
-                            >
-                                {/* Node */}
-                                <div className="absolute left-[-4px] md:left-1/2 md:translate-x-[-50%] top-0 md:top-8 w-2 h-2 rounded-full bg-[#6366F1] shadow-[0_0_15px_rgba(99,102,241,0.5)] z-10" />
-
-                                {/* Content Card */}
-                                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'
-                                    }`}>
-                                    <div className="p-8 rounded-2xl bg-[#111111] border border-white/5 hover:border-[#6366F1]/30 transition-all duration-500 group">
-                                        <div className="flex items-center justify-between mb-2">
-                                            <span className="text-[#6366F1] text-xs font-bold uppercase tracking-widest">
-                                                {item.period}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#6366F1] transition-colors">
-                                            {item.role}
-                                        </h3>
-                                        <div className="text-sm text-[#9CA3AF] mb-4 font-medium italic">
-                                            {item.organization}
-                                        </div>
-                                        <p className="text-[#9CA3AF] leading-relaxed text-sm">
-                                            {item.description}
-                                        </p>
-                                    </div>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            {achievements.map((achievement, i) => (
+                                <div key={i} className="flex gap-4">
+                                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6366F1] shrink-0" />
+                                    <p className="text-[#9CA3AF] font-medium leading-relaxed">{achievement}</p>
                                 </div>
-
-                                {/* Spacer for 1-column logic on desktop */}
-                                <div className="hidden md:block md:w-1/2" />
-                            </motion.div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
+
+                    {/* Decorative Gradient */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#6366F1]/5 blur-[80px] -z-10" />
+                </motion.div>
             </div>
         </section>
     );

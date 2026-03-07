@@ -1,132 +1,61 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef, useState } from 'react';
-import { Mail, Phone, Github, Linkedin, Send } from 'lucide-react';
+import { useRef } from 'react';
+import { Mail, Phone, Github, Linkedin, Download } from 'lucide-react';
 
 export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'ballubalaram2003@gmail.com',
-      href: 'mailto:ballubalaram2003@gmail.com',
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'balaram-b',
-      href: 'https://www.linkedin.com/in/balaram-b-022ba031b',
-    },
-    {
-      icon: Github,
-      label: 'GitHub',
-      value: 'Maverick-B9',
-      href: 'https://github.com/Maverick-B9',
-    },
-  ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    window.location.href = `mailto:ballubalaram2003@gmail.com?subject=Portfolio Inquiry from ${formData.name}&body=${formData.message} (From: ${formData.email})`;
-  };
 
   return (
-    <section id="contact" className="relative py-24">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h2 className="text-3xl font-bold text-white mb-6">
-              Let's Build Together
-            </h2>
-            <p className="text-[#9CA3AF] text-lg mb-12 font-medium max-w-md">
-              Currently available for technical collaborations, AI engineering roles, and innovative system architecture projects.
-            </p>
+    <section id="contact" className="py-24 bg-[#0A0A0A]">
+      <div className="max-w-[1200px] mx-auto px-6 text-center">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="text-[34px] font-bold text-white mb-6 tracking-tight">Let's Build Something Meaningful</h2>
+          <p className="text-[#9CA3AF] text-lg font-medium max-w-2xl mx-auto mb-16">
+            Available for worldwide collaborations, AI engineering roles, and innovative system architecture projects. Let's engineer the future together.
+          </p>
 
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={index}
-                  href={info.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-[#111111] border border-white/5 hover:border-[#6366F1]/40 transition-all duration-300 group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#6366F1]/10 flex items-center justify-center text-[#6366F1] group-hover:bg-[#6366F1] group-hover:text-white transition-all">
-                    <info.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest">{info.label}</p>
-                    <p className="text-white font-medium">{info.value}</p>
-                  </div>
-                </motion.a>
-              ))}
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto mb-20">
+            {/* Email Card */}
+            <a href="mailto:ballubalaram2003@gmail.com" className="p-8 rounded-[2rem] bg-[#151515] border border-[#1F1F1F] hover:border-[#6366F1]/30 transition-all group flex flex-col items-center">
+              <div className="w-12 h-12 rounded-2xl bg-[#6366F1]/10 flex items-center justify-center text-[#6366F1] transition-transform group-hover:scale-110 mb-6">
+                <Mail className="w-6 h-6" />
+              </div>
+              <p className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest mb-1">Email</p>
+              <p className="text-white font-bold">ballubalaram2003@gmail.com</p>
+            </a>
+
+            {/* Phone Card */}
+            <div className="p-8 rounded-[2rem] bg-[#151515] border border-[#1F1F1F] hover:border-[#6366F1]/30 transition-all group flex flex-col items-center">
+              <div className="w-12 h-12 rounded-2xl bg-[#6366F1]/10 flex items-center justify-center text-[#6366F1] transition-transform group-hover:scale-110 mb-6">
+                <Phone className="w-6 h-6" />
+              </div>
+              <p className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest mb-1">Phone</p>
+              <p className="text-white font-bold">+91 9449114920</p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right: Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="p-8 rounded-[2.5rem] bg-[#111111] border border-white/5 relative overflow-hidden"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-              <div className="space-y-2">
-                <label className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest ml-1">Name</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-[#6366F1]/50 transition-colors"
-                  placeholder="Your full name"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest ml-1">Email</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-[#6366F1]/50 transition-colors"
-                  placeholder="email@example.com"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest ml-1">Message</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-[#6366F1]/50 transition-colors resize-none"
-                  placeholder="Describe your project or inquiry..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full py-4 bg-[#6366F1] hover:bg-[#4F46E5] text-white font-bold rounded-2xl shadow-xl shadow-indigo-500/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-              >
-                <Send className="w-4 h-4" />
-                Send Message
-              </button>
-            </form>
-          </motion.div>
-        </div>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="https://github.com/Maverick-B9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-all">
+              <Github className="w-5 h-5" />
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/balaram-b-022ba031b" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#6366F1] text-white font-bold shadow-xl shadow-indigo-500/20 hover:bg-[#4F46E5] transition-all">
+              <Linkedin className="w-5 h-5" />
+              LinkedIn
+            </a>
+            <a href="/Balaram_B_Resume.pdf" download className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-all">
+              <Download className="w-5 h-5" />
+              Resume
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
