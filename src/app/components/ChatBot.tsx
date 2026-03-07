@@ -26,10 +26,10 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const quickQuestions = [
-    'Who is Balaram B?',
-    'Show project systems',
-    'Tech stack archive',
-    'Leadership telemetry',
+    'Who is Balaram?',
+    'What projects has he built?',
+    'What technologies does he know?',
+    'How can I contact him?',
   ];
 
   const scrollToBottom = () => {
@@ -44,17 +44,15 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
     const lowerMessage = userMessage.toLowerCase();
 
     if (lowerMessage.includes('who') || lowerMessage.includes('about')) {
-      return "Balaram B is an AI Systems Engineer and Computer Science student. He is the Secretary of Stack Forge Coding Club and specializing in building intelligent systems that scale.";
-    } else if (lowerMessage.includes('project') || lowerMessage.includes('system')) {
-      return "Core Systems Built:\n1. Digital Forensic Tool (ML/CV)\n2. Krishi Saathi (Agricultural AI)\n3. Maasakhi (Safety Platform)\n4. Live Auction System (2500+ participants)\n5. Verto & LinkedIn Collab Projects.";
-    } else if (lowerMessage.includes('tech') || lowerMessage.includes('skill')) {
-      return "Intelligence Archive:\n- Languages: Python, Java, C, MySQL\n- Domains: Machine Learning, Computer Vision, AI Systems\n- Frameworks: Flask, TensorFlow, React.";
-    } else if (lowerMessage.includes('contact') || lowerMessage.includes('email')) {
-      return "Direct Connectivity:\n📧 ballubalaram2003@gmail.com\n💼 linkedin.com/in/balaram-b-022ba031b\n🔗 github.com/Maverick-B9";
-    } else if (lowerMessage.includes('leadership') || lowerMessage.includes('event')) {
-      return "Leadership Telemetry:\n- Secretary of Stack Forge Coding Club\n- 12+ Technical Events Managed\n- 300+ Developer Community Mentored\n- 2500+ Students Engaged in Live Events.";
+      return "Balaram B is an AI Systems Engineer and Computer Science student. He specializes in building intelligent platforms, developer tools, and real-world technology systems.";
+    } else if (lowerMessage.includes('project') || lowerMessage.includes('system') || lowerMessage.includes('build')) {
+      return "Balaram has built several intelligent systems, including:\n- Digital Forensic Tool\n- Krishi Saathi (Agri-AI)\n- Maasakhi (Women's Safety)\n- Verto (Process Management)\n- Live Auction System (2500+ users)\n- Placement Portal\n- IndeAminds Collaborations.";
+    } else if (lowerMessage.includes('tech') || lowerMessage.includes('skill') || lowerMessage.includes('know')) {
+      return "His technical arsenal includes:\n- Languages: Python, Java, C, MySQL\n- AI: Machine Learning, Computer Vision, AI Systems\n- Frameworks: Flask, TensorFlow, React.";
+    } else if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('how')) {
+      return "You can reach Balaram through:\n📧 ballubalaram2003@gmail.com\n💼 linkedin.com/in/balaram-b-022ba031b\n🔗 github.com/Maverick-B9";
     } else {
-      return "QUERY_UNRECOGNIZED. I can discuss project architectures, leadership metrics, or direct contact protocols. Please specify your request.";
+      return "SYSTEM_QUERY_RECOGNIZED: I can provide details on Balaram's identity, systems built, technical skills, or contact protocols. Please specify your request.";
     }
   };
 

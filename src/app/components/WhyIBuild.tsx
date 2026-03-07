@@ -30,7 +30,7 @@ export function WhyIBuild() {
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 1, delay: 0.5 }}
                         >
-                            I build software that <span className="text-[#4F9DFF]">solves real problems</span>.
+                            I build software that <span className="text-[#4F9DFF]">solves real-world problems</span>.
                         </motion.p>
 
                         <motion.div
@@ -40,10 +40,7 @@ export function WhyIBuild() {
                             transition={{ duration: 1, delay: 0.8 }}
                         >
                             <p className="text-2xl md:text-3xl text-white/50 leading-relaxed font-light text-center">
-                                From agricultural platforms like Krishi Saathi to investigative systems like my digital forensic tools, my goal is to design technology that has <span className="text-white italic">real-world impact</span>.
-                            </p>
-                            <p className="text-2xl md:text-3xl text-white/50 leading-relaxed font-light text-center">
-                                I enjoy building systems that combine engineering, intelligence, and usability.
+                                From agricultural platforms like Krishi Saathi to investigative systems like <span className="text-white">digital forensic tools</span>, my goal is to design technology that has <span className="text-white italic">real impact</span>.
                             </p>
                         </motion.div>
                     </div>

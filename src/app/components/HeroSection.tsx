@@ -16,23 +16,25 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Depth - handled by global Starfield, adding local blur overlays */}
+      {/* Background Depth Overlay */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4F9DFF]/5 blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#5A4FCF]/5 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-8 flex flex-col items-center">
-        {/* AI Core Visual */}
+      {/* AI Core Visual (Behind Content) */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-50">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          className="mb-8"
+          transition={{ duration: 2, ease: 'easeOut' }}
+          className="scale-150 md:scale-[2]"
         >
           <AICore />
         </motion.div>
+      </div>
 
+      <div className="relative z-10 max-w-[1440px] mx-auto px-8 flex flex-col items-center">
         {/* Content */}
         <div className="text-center max-w-5xl mx-auto flex flex-col items-center">
           <motion.div
@@ -53,7 +55,7 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.8 }}
             >
-              I build intelligent systems, scalable platforms, and real-world technology solutions.
+              Building intelligent platforms, developer tools, and real-world technology systems.
             </motion.p>
 
             <motion.div

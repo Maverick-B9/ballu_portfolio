@@ -26,10 +26,10 @@ export function SystemImpact() {
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     const stats = [
-        { number: 12, suffix: '+', label: 'Technical Events Organized' },
         { number: 2500, suffix: '+', label: 'Students Engaged' },
-        { number: 300, suffix: '+', label: 'Developer Community Members' },
-        { number: 7, suffix: '+', label: 'Software Platforms Built' },
+        { number: 12, suffix: '+', label: 'Technical Events Organized' },
+        { number: 300, suffix: '+', label: 'Developer Community Built' },
+        { number: 7, suffix: '+', label: 'Systems Developed' },
     ];
 
     return (
