@@ -2,7 +2,7 @@ import { motion, animate } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 
-function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
+function Counter({ value, suffix = "", prefix = "" }: { value: number; suffix?: string; prefix?: string }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const [count, setCount] = useState(0);
@@ -17,7 +17,7 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
         }
     }, [isInView, value]);
 
-    return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+    return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>;
 }
 
 
@@ -26,17 +26,17 @@ export function SystemImpact() {
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     const metrics = [
-        { label: 'Technical Events Organized', value: '12+', detail: 'Hackathons & Workshops' },
-        { label: 'Live Auction Participants', value: '2500+', detail: 'Large-scale student events' },
-        { label: 'Dev Community Members', value: '300+', detail: 'Student Developer Network' },
-        { label: 'Production Systems Built', value: '6+', detail: 'Real-world software impact' },
-        { label: 'Hackathon Finalist', value: 'Top 8', detail: 'Out of 900 teams' },
+        { label: 'Technical Events Organized', value: 12, suffix: '+', detail: 'Hackathons & Workshops' },
+        { label: 'Live Auction Participants', value: 2500, suffix: '+', detail: 'Large-scale student events' },
+        { label: 'Dev Community Members', value: 300, suffix: '+', detail: 'Student Developer Network' },
+        { label: 'Production Systems Built', value: 6, suffix: '+', detail: 'Real-world software impact' },
+        { label: 'Hackathon Finalist', value: 8, prefix: 'Top ', detail: 'Out of 900 teams' },
     ];
 
     return (
         <section className="py-24 relative overflow-hidden">
             <div className="max-w-[1200px] mx-auto px-6">
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                <div ref={ref} className="grid grid-cols-2 lg:grid-cols-5 gap-4">
                     {metrics.map((metric, index) => (
                         <motion.div
                             key={index}
@@ -47,7 +47,7 @@ export function SystemImpact() {
                             className="p-6 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-md hover:bg-white/[0.04] hover:border-[#6366F1]/30 transition-all group"
                         >
                             <div className="text-3xl font-bold text-white mb-2 tracking-tighter group-hover:text-[#6366F1] transition-colors">
-                                {metric.value}
+                                {metric.prefix}<Counter value={metric.value} suffix={metric.suffix} />
                             </div>
                             <div className="text-[10px] font-bold text-[#6366F1] uppercase tracking-[0.2em] mb-1">
                                 {metric.label}

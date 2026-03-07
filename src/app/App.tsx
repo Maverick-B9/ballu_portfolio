@@ -17,6 +17,8 @@ import { Starfield } from './components/Starfield';
 import { Achievements } from './components/Achievements';
 import { SkillsSection } from './components/SkillsSection';
 
+import { CursorSpotlight } from './components/CursorSpotlight';
+
 export default function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isBooting, setIsBooting] = useState(true);
@@ -25,19 +27,10 @@ export default function App() {
     // Set dark mode by default
     document.documentElement.classList.add('dark');
 
-    const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
     // Ensure the page starts at the top on load
     if (!isBooting) {
       window.scrollTo(0, 0);
     }
-
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isBooting]);
 
 
@@ -46,14 +39,15 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B0B0F] overflow-x-hidden relative selection:bg-[#4F9DFF]/30">
+    <div className="min-h-screen bg-[#0A0A0A] overflow-x-hidden relative selection:bg-[#6366F1]/30">
       <Starfield />
+      <CursorSpotlight />
 
       {/* Navigation */}
       <Navigation onChatOpen={() => setIsChatOpen(true)} />
 
       {/* Main Content */}
-      <main className="relative z-10 spotlight-bg min-h-screen">
+      <main className="relative z-10 min-h-screen">
         <HeroSection onChatOpen={() => setIsChatOpen(true)} />
         <SystemImpact />
         <WhyIBuild />
