@@ -77,12 +77,14 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
                 <MessageSquare className="w-5 h-5 text-[#4F9DFF]" />
                 <span>Ask Balaram AI</span>
               </button>
-              <button
+              <a
+                href="/Balaram_B_Resume.pdf"
+                download
                 className="px-10 py-5 bg-transparent text-white/60 hover:text-white transition-all flex items-center gap-3 font-medium text-lg"
               >
                 <Download className="w-5 h-5" />
                 <span>Download Resume</span>
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         </div>

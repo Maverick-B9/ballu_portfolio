@@ -29,6 +29,15 @@ export function CommandPalette() {
 
     const handleAction = (cmd: string) => {
         setIsOpen(false);
+
+        if (cmd === 'resume') {
+            const link = document.createElement('a');
+            link.href = '/Balaram_B_Resume.pdf';
+            link.download = 'Balaram_B_Resume.pdf';
+            link.click();
+            return;
+        }
+
         const idMap: Record<string, string> = {
             projects: 'projects',
             terminal: 'terminal',

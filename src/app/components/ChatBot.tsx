@@ -53,8 +53,10 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
       return "He specializes in:\n- Machine Learning: TensorFlow, PyTorch, YOLOv8, Scikit-learn.\n- Languages: Python, JavaScript, TypeScript, Java, C.\n- Backend: Node.js, Express, Flask, MySQL.";
     } else if (lowerMessage.includes('contact') || lowerMessage.includes('email')) {
       return "Protocols for direct communication:\n📧 ballubalaram2003@gmail.com\n💼 linkedin.com/in/balaram-b-022ba031b\n🔗 github.com/Maverick-B9";
+    } else if (lowerMessage.includes('resume') || lowerMessage.includes('cv')) {
+      return "ACCESS_GRANTED: You can download Balaram's full technical resume here:\n📄 [Balaram_B_Resume.pdf](/Balaram_B_Resume.pdf)";
     } else {
-      return "SYSTEM_QUERY_RECOGNIZED: I can provide specifications on Balaram's identity, specialized projects like KRISHI SARATHI, technical stack, or contact protocols.";
+      return "SYSTEM_QUERY_RECOGNIZED: I can provide specifications on Balaram's identity, specialized projects like KRISHI SARATHI, technical stack, resume access, or contact protocols.";
     }
   };
 
