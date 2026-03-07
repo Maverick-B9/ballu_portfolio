@@ -46,7 +46,7 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
               BALARAM B
             </h1>
             <h2 className="text-xl md:text-2xl text-[#4F9DFF] mb-12 tracking-[0.5em] font-medium opacity-90">
-              AI SYSTEMS ENGINEER
+              COMPUTER SCIENCE ENGINEER
             </h2>
 
             <motion.p
