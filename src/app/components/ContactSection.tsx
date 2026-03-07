@@ -56,13 +56,16 @@ export function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
-          <h2 className="text-5xl md:text-6xl text-white mb-6 tracking-tight">
-            Get In Touch
+          <h2 className="text-xs tracking-[0.8em] text-[#4F9DFF] mb-8 opacity-80 uppercase">
+            CONNECT
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Let's collaborate on building intelligent solutions together
+          <p className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-none mb-4">
+            LET'S BUILD SOMETHING <span className="text-[#4F9DFF]">INTELLIGENT</span> TOGETHER
+          </p>
+          <p className="text-white/40 text-xl font-light">
+            Available for worldwide collaborations and technical leadership.
           </p>
         </motion.div>
 

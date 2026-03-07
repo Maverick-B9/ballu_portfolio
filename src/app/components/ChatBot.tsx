@@ -86,31 +86,29 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 40, x: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 40 }}
+          initial={{ opacity: 0, y: 100, scale: 0.9, x: 20 }}
+          animate={{ opacity: 1, y: 0, scale: 1, x: 0 }}
+          exit={{ opacity: 0, y: 100, scale: 0.9 }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          className="fixed bottom-8 right-8 w-[400px] h-[600px] z-[110] flex flex-col rounded-[2.5rem] bg-[#0B0B0F]/90 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden"
+          className="fixed bottom-8 right-8 w-[400px] h-[650px] z-[120] flex flex-col rounded-[3rem] bg-black/40 backdrop-blur-[60px] border border-white/10 shadow-2xl overflow-hidden"
         >
           {/* Header */}
-          <div className="p-8 border-b border-white/5 bg-gradient-to-r from-[#4F9DFF]/5 to-transparent">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#4F9DFF] flex items-center justify-center shadow-[0_0_15px_rgba(79,157,255,0.4)]">
-                  <Terminal className="w-6 h-6 text-[#0B0B0F]" />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold tracking-widest text-sm uppercase">BALARAM_AI</h3>
-                  <p className="text-[#4F9DFF] text-[10px] font-mono tracking-widest">v1.2 // SECURE_LINE</p>
-                </div>
+          <div className="p-10 border-b border-white/5 bg-white/5 flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-[#4F9DFF] flex items-center justify-center shadow-[0_0_20px_rgba(79,157,255,0.4)]">
+                <Terminal className="w-7 h-7 text-[#0B0B0F]" />
               </div>
-              <button
-                onClick={onClose}
-                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
-              >
-                <X className="w-4 h-4 text-white/70" />
-              </button>
+              <div>
+                <h3 className="text-white font-bold tracking-tight text-lg leading-tight text-white mb-0.5">Balaram Intelligence</h3>
+                <p className="text-[#4F9DFF] text-[10px] font-mono tracking-[0.2em] font-bold uppercase opacity-80">v2.0 // Neural Interface</p>
+              </div>
             </div>
+            <button
+              onClick={onClose}
+              className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all text-white/40 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Messages */}
@@ -124,8 +122,8 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
               >
                 <div
                   className={`max-w-[85%] p-5 rounded-[1.5rem] font-medium text-sm leading-relaxed ${message.sender === 'user'
-                      ? 'bg-[#4F9DFF] text-[#0B0B0F]'
-                      : 'bg-white/5 text-white/80 border border-white/5'
+                    ? 'bg-[#4F9DFF] text-[#0B0B0F]'
+                    : 'bg-white/5 text-white/80 border border-white/5'
                     }`}
                 >
                   <p className="whitespace-pre-line">{message.text}</p>

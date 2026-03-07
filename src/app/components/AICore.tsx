@@ -21,35 +21,35 @@ export function AICore() {
             <motion.div
                 className="relative w-full h-full"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
             >
-                {[...Array(12)].map((_, i) => (
+                {[...Array(8)].map((_, i) => (
                     <div
                         key={i}
-                        className="absolute top-1/2 left-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4F9DFF]/40 to-transparent"
-                        style={{ transform: `translate(-50%, -50%) rotate(${i * 30}deg)` }}
+                        className="absolute top-1/2 left-1/2 w-full h-[0.5px] bg-gradient-to-r from-transparent via-[#4F9DFF]/10 to-transparent"
+                        style={{ transform: `translate(-50%, -50%) rotate(${i * 45}deg)` }}
                     />
                 ))}
 
-                {[...Array(24)].map((_, i) => {
-                    const angle = (i * 15) * (Math.PI / 180);
-                    const radius = i % 2 === 0 ? 45 : 35; // % of container
+                {[...Array(16)].map((_, i) => {
+                    const angle = (i * 22.5) * (Math.PI / 180);
+                    const radius = i % 2 === 0 ? 40 : 30; // % of container
                     return (
                         <motion.div
                             key={`node-${i}`}
-                            className="absolute w-1 h-1 bg-[#4F9DFF] rounded-full shadow-[0_0_8px_#4F9DFF]"
+                            className="absolute w-1 h-1 bg-[#4F9DFF]/60 rounded-full shadow-[0_0_4px_rgba(79,157,255,0.4)]"
                             style={{
                                 left: `${50 + radius * Math.cos(angle)}%`,
                                 top: `${50 + radius * Math.sin(angle)}%`,
                             }}
                             animate={{
-                                opacity: [0.4, 1, 0.4],
-                                scale: [1, 1.5, 1],
+                                opacity: [0.2, 0.5, 0.2],
+                                scale: [0.8, 1.2, 0.8],
                             }}
                             transition={{
-                                duration: 2 + Math.random() * 2,
+                                duration: 5 + Math.random() * 5,
                                 repeat: Infinity,
-                                delay: Math.random() * 2,
+                                delay: Math.random() * 5,
                             }}
                         />
                     );
@@ -57,12 +57,13 @@ export function AICore() {
             </motion.div>
 
             {/* Central Core */}
-            <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-[#4F9DFF] to-[#5A4FCF] blur-md opacity-20" />
+            <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-[#4F9DFF] to-[#5A4FCF] blur-2xl opacity-10" />
             <motion.div
-                className="absolute w-8 h-8 rounded-full bg-white shadow-[0_0_20px_#fff]"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute w-4 h-4 rounded-full bg-white/40 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity }}
             />
+
         </div>
     );
 }

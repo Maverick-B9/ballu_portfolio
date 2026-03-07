@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
-import { IdentitySection } from './components/IdentitySection';
-import { AboutSection } from './components/AboutSection';
-import { SkillsSection } from './components/SkillsSection';
-import { ProjectsSection } from './components/ProjectsSection';
-import { AchievementsSection } from './components/AchievementsSection';
+import { WhyIBuild } from './components/WhyIBuild';
+import { SystemImpact } from './components/SystemImpact';
+import { SystemsBuilt } from './components/SystemsBuilt';
+import { LeadershipTimeline } from './components/LeadershipTimeline';
+import { GitHubPanel } from './components/GitHubPanel';
+import { DeveloperTerminal } from './components/DeveloperTerminal';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ChatBot } from './components/ChatBot';
@@ -29,7 +30,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B0B0F] overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#0B0B0F] overflow-x-hidden relative selection:bg-[#4F9DFF]/30">
       <Starfield />
 
       {/* Navigation */}
@@ -38,11 +39,12 @@ export default function App() {
       {/* Main Content */}
       <main className="relative z-10">
         <HeroSection onChatOpen={() => setIsChatOpen(true)} />
-        <IdentitySection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <AchievementsSection />
+        <WhyIBuild />
+        <SystemImpact />
+        <SystemsBuilt />
+        <LeadershipTimeline />
+        <GitHubPanel />
+        <DeveloperTerminal />
         <ContactSection />
       </main>
 

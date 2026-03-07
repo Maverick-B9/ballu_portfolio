@@ -48,11 +48,11 @@ export function LeadershipTimeline() {
                     transition={{ duration: 0.8 }}
                     className="mb-24 text-center"
                 >
-                    <h2 className="text-xs tracking-[0.6em] text-[#4F9DFF] mb-6 opacity-80">
-                        LEADERSHIP
+                    <h2 className="text-xs tracking-[0.8em] text-[#4F9DFF] mb-6 opacity-80 uppercase">
+                        LEADERSHIP & COMMUNITY
                     </h2>
-                    <p className="text-white/60 text-lg max-w-2xl mx-auto uppercase tracking-wider">
-                        Chronicling the evolution of an engineering leader
+                    <p className="text-white/40 text-2xl font-light">
+                        Driving <span className="text-white italic">innovation</span> through group intelligence.
                     </p>
                 </motion.div>
 

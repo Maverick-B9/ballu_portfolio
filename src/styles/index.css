@@ -24,6 +24,11 @@
     font-family: 'Outfit', sans-serif;
     @apply tracking-tighter font-bold uppercase;
   }
+
+  section {
+    @apply py-32 md:py-64;
+    /* Massive whitespace */
+  }
 }
 
 @layer components {

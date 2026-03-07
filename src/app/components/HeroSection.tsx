@@ -34,53 +34,53 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
         </motion.div>
 
         {/* Content */}
-        <div className="text-center max-w-4xl">
+        <div className="text-center max-w-5xl mx-auto flex flex-col items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="text-7xl md:text-8xl lg:text-9xl text-white mb-2 leading-none">
+            <h1 className="text-8xl md:text-9xl lg:text-[10rem] font-bold text-white mb-4 leading-none tracking-tighter">
               BALARAM B
             </h1>
-            <h2 className="text-xl md:text-2xl text-[#4F9DFF] mb-8 tracking-[0.4em] font-medium opacity-80">
+            <h2 className="text-xl md:text-2xl text-[#4F9DFF] mb-12 tracking-[0.5em] font-medium opacity-90">
               AI SYSTEMS ENGINEER
             </h2>
 
             <motion.p
-              className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-white/50 mb-16 max-w-2xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
+              transition={{ duration: 1.5, delay: 0.8 }}
             >
-              I build intelligent software systems, scalable platforms, and real-world technology solutions.
+              I build intelligent systems, scalable platforms, and real-world technology solutions.
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap items-center justify-center gap-4 mb-20"
+              className="flex flex-wrap items-center justify-center gap-6 mb-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.3 }}
+              transition={{ duration: 1, delay: 1.2 }}
             >
               <button
-                onClick={() => scrollToSection('mission')}
-                className="group px-8 py-4 bg-white text-[#0B0B0F] rounded-full hover:bg-[#F5F5F7] transition-all flex items-center gap-2 font-medium"
+                onClick={() => scrollToSection('why-i-build')}
+                className="group px-10 py-5 bg-white text-[#0B0B0F] rounded-full hover:bg-[#F5F5F7] transition-all flex items-center gap-3 font-semibold text-lg"
               >
                 <span>Explore Systems</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button
                 onClick={onChatOpen}
-                className="px-8 py-4 bg-white/5 text-white rounded-full hover:bg-white/10 backdrop-blur-sm border border-white/10 transition-all flex items-center gap-2 font-medium"
+                className="px-10 py-5 bg-white/5 text-white rounded-full hover:bg-white/10 backdrop-blur-xl border border-white/10 transition-all flex items-center gap-3 font-semibold text-lg"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare className="w-5 h-5 text-[#4F9DFF]" />
                 <span>Ask Balaram AI</span>
               </button>
               <button
-                className="px-8 py-4 bg-transparent text-white/70 hover:text-white transition-all flex items-center gap-2 font-medium"
+                className="px-10 py-5 bg-transparent text-white/60 hover:text-white transition-all flex items-center gap-3 font-medium text-lg"
               >
-                <Download className="w-4 h-4" />
-                <span>Resume</span>
+                <Download className="w-5 h-5" />
+                <span>Download Resume</span>
               </button>
             </motion.div>
           </motion.div>
