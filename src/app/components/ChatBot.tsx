@@ -28,7 +28,7 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
   const quickQuestions = [
     'Who is Balaram?',
     'What projects has he built?',
-    'What technologies does he use?',
+    'What technologies does he know?',
     'How can I contact him?',
   ];
 

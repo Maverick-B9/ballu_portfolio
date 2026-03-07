@@ -40,7 +40,7 @@ export function WhyIBuild() {
                             transition={{ duration: 1, delay: 0.8 }}
                         >
                             <p className="text-2xl md:text-3xl text-white/50 leading-relaxed font-light text-center">
-                                From agricultural platforms like Krishi Saathi to investigative tools like <span className="text-white">digital forensic systems</span>, my focus is creating technology that delivers <span className="text-white italic">real impact</span>.
+                                From agricultural platforms like Krishi Saathi to investigative tools like <span className="text-white">digital forensic systems</span>, my goal is to create technology that has <span className="text-white italic">real impact</span>.
                             </p>
                         </motion.div>
                     </div>
