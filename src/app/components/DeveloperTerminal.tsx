@@ -80,7 +80,6 @@ export function DeveloperTerminal() {
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 className="flex-1 bg-transparent outline-none border-none p-0 text-white placeholder:text-white/20"
-                                autoFocus
                                 spellCheck={false}
                             />
                         </form>

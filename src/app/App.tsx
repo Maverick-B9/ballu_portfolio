@@ -20,9 +20,13 @@ export default function App() {
 
   useEffect(() => {
     // Set dark mode by default
-    // Vercel deployment trigger v1.0.1
     document.documentElement.classList.add('dark');
-  }, []);
+
+    // Ensure the page starts at the top on load
+    if (!isBooting) {
+      window.scrollTo(0, 0);
+    }
+  }, [isBooting]);
 
 
   if (isBooting) {

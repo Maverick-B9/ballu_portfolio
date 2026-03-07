@@ -73,7 +73,6 @@ export function CommandPalette() {
                                 onChange={(e) => setQuery(e.target.value)}
                                 placeholder="Type a command or search..."
                                 className="flex-1 bg-transparent outline-none border-none text-white text-lg placeholder:text-white/20"
-                                autoFocus
                             />
                         </div>
 
