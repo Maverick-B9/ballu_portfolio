@@ -13,7 +13,6 @@ import { ChatBot } from './components/ChatBot';
 import { ChatbotButton } from './components/ChatbotButton';
 import { BootSequence } from './components/BootSequence';
 import { Starfield } from './components/Starfield';
-import { FeaturedProject } from './components/FeaturedProject';
 import { Achievements } from './components/Achievements';
 import { SkillsSection } from './components/SkillsSection';
 
@@ -25,10 +24,19 @@ export default function App() {
     // Set dark mode by default
     document.documentElement.classList.add('dark');
 
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
     // Ensure the page starts at the top on load
     if (!isBooting) {
       window.scrollTo(0, 0);
     }
+
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isBooting]);
 
 
@@ -44,9 +52,8 @@ export default function App() {
       <Navigation onChatOpen={() => setIsChatOpen(true)} />
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main className="relative z-10 spotlight-bg min-h-screen">
         <HeroSection onChatOpen={() => setIsChatOpen(true)} />
-        <FeaturedProject />
         <SystemImpact />
         <WhyIBuild />
         <SystemsBuilt />

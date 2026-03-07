@@ -13,7 +13,7 @@
 
 @layer base {
   body {
-    @apply bg-[#0B0B0F] text-[#F5F5F7] antialiased selection:bg-[#4F9DFF]/30;
+    @apply bg-[#0A0A0A] text-[#FFFFFF] antialiased selection:bg-[#6366F1]/30;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
@@ -21,13 +21,16 @@
   h2,
   h3,
   h4 {
-    font-family: 'Outfit', sans-serif;
-    @apply tracking-tighter font-bold uppercase;
+    @apply tracking-tight font-bold text-white;
+    font-family: 'Inter', sans-serif;
+    text-transform: none;
+    /* Apple-style elegance uses natural casing */
   }
 
   section {
-    @apply py-48 md:py-80;
-    /* Massive whitespace for Apple-style elegance */
+    @apply py-32 md:py-48;
+    max-width: 1200px;
+    @apply mx-auto px-6;
   }
 }
 
@@ -53,7 +56,13 @@
   }
 
   .terminal-text {
-    @apply font-mono uppercase tracking-[0.2em] text-xs;
+    @apply font-mono uppercase tracking-[0.2em] text-[10px] text-[#9CA3AF];
+  }
+
+  .spotlight-bg {
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+        rgba(99, 102, 241, 0.05),
+        transparent 40%);
   }
 }
 

@@ -17,20 +17,13 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 0,
-      text: "SYSTEM_ACCESS_GRANTED: I am Balaram's AI interface. I can provide technical specifications on his projects, leadership impact, and engineering expertise. How shall we proceed?",
+      text: "ACCESS_GRANTED: I am Balaram's AI interface. I can provide technical specifications on his projects, engineering expertise, and leadership impact. How can I assist you today?",
       sender: 'bot',
     },
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const quickQuestions = [
-    'What projects has Balaram built?',
-    'What technologies does he specialize in?',
-    'What is Krishi Sarathi?',
-    'How can I contact him?',
-  ];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -46,122 +39,104 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
     const lowerMessage = userMessage.toLowerCase();
 
     if (lowerMessage.includes('who') || lowerMessage.includes('about')) {
-      return "Balaram B is an AI Systems Engineer specializing in building intelligent platforms, developer tools, and scalable machine learning infrastructure.";
-    } else if (lowerMessage.includes('project') || lowerMessage.includes('system') || lowerMessage.includes('build') || lowerMessage.includes('sarathi')) {
-      return "Balaram's key systems include:\n- Krishi Sarathi (AI Agri-Platform): Trained EfficientNet-B0 on 32k images, 90.7% accuracy.\n- MaaSakhi: AI maternal health assistant predicting clinical risks.\n- Live Auction System: Deployed for 2500+ attendees with sub-second latency.\n- Digital Forensic Tool: SHA-256 metadata extraction and entropy analysis.";
-    } else if (lowerMessage.includes('tech') || lowerMessage.includes('skill') || lowerMessage.includes('specialize')) {
-      return "He specializes in:\n- Machine Learning: TensorFlow, PyTorch, YOLOv8, Scikit-learn.\n- Languages: Python, JavaScript, TypeScript, Java, C.\n- Backend: Node.js, Express, Flask, MySQL.";
-    } else if (lowerMessage.includes('contact') || lowerMessage.includes('email')) {
-      return "Protocols for direct communication:\n📧 ballubalaram2003@gmail.com\n💼 linkedin.com/in/balaram-b-022ba031b\n🔗 github.com/Maverick-B9";
+      return "Balaram B is an AI Systems Engineer focused on building intelligent platforms, developer tools, and scalable machine learning infrastructure.";
+    } else if (lowerMessage.includes('project') || lowerMessage.includes('system') || lowerMessage.includes('build')) {
+      return "Key Systems:\n- Krishi Sarathi: AI Agri-Platform (90.7% accuracy)\n- Digital Forensic Tool: Automated evidence analysis\n- Verto: AI Quiz Generator\n- Real-Time Auction: 2500+ concurrent users";
+    } else if (lowerMessage.includes('tech') || lowerMessage.includes('skill')) {
+      return "Expertise:\n- ML: TensorFlow, PyTorch, YOLOv8\n- Languages: Python, TypeScript, C++\n- Backend: Node.js, Flask, PostgreSQL";
+    } else if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
+      return "Communication Protocols:\n📧 ballubalaram2003@gmail.com\n💼 linkedin.com/in/balaram-b-022ba031b";
     } else if (lowerMessage.includes('resume') || lowerMessage.includes('cv')) {
-      return "ACCESS_GRANTED: You can download Balaram's full technical resume here:\n📄 [Balaram_B_Resume.pdf](/Balaram_B_Resume.pdf)";
+      return "You can download the latest technical resume here:\n📄 [Balaram_B_Resume.pdf](/Balaram_B_Resume.pdf)";
     } else {
-      return "SYSTEM_QUERY_RECOGNIZED: I can provide specifications on Balaram's identity, specialized projects like KRISHI SARATHI, technical stack, resume access, or contact protocols.";
+      return "I can provide details on Balaram's technical projects, leadership roles, stack expertise, or contact information.";
     }
   };
 
   const handleSend = () => {
     if (!input.trim()) return;
 
-    const userMessage: Message = {
-      id: messages.length,
-      text: input,
-      sender: 'user',
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
+    const userMsg: Message = { id: Date.now(), text: input, sender: 'user' };
+    setMessages(prev => [...prev, userMsg]);
     setInput('');
     setIsTyping(true);
 
     setTimeout(() => {
-      const botResponse: Message = {
-        id: messages.length + 1,
-        text: getBotResponse(input),
-        sender: 'bot',
-      };
-      setMessages((prev) => [...prev, botResponse]);
+      const botMsg: Message = { id: Date.now() + 1, text: getBotResponse(input), sender: 'bot' };
+      setMessages(prev => [...prev, botMsg]);
       setIsTyping(false);
-    }, 800);
+    }, 1000);
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: 100, scale: 0.9, x: 20 }}
-          animate={{ opacity: 1, y: 0, scale: 1, x: 0 }}
-          exit={{ opacity: 0, y: 100, scale: 0.9 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          className="fixed bottom-8 right-8 w-[400px] h-[650px] z-[120] flex flex-col rounded-[3rem] bg-black/40 backdrop-blur-[60px] border border-white/10 shadow-2xl overflow-hidden"
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          className="fixed bottom-8 right-8 w-[380px] h-[600px] z-[120] flex flex-col rounded-3xl bg-[#111111]/80 backdrop-blur-2xl border border-white/10 shadow-2xl overflow-hidden"
         >
           {/* Header */}
-          <div className="p-10 border-b border-white/5 bg-white/5 flex items-center justify-between">
-            <div className="flex items-center gap-5">
-              <div className="w-14 h-14 rounded-2xl bg-[#4F9DFF] flex items-center justify-center shadow-[0_0_20px_rgba(79,157,255,0.4)]">
-                <Terminal className="w-7 h-7 text-[#0B0B0F]" />
+          <div className="p-6 border-b border-white/5 bg-white/[0.02] flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#6366F1] flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="text-white font-bold tracking-tight text-lg leading-tight text-white mb-0.5">Balaram Intelligence</h3>
-                <p className="text-[#4F9DFF] text-[10px] font-mono tracking-[0.2em] font-bold uppercase opacity-80">v2.0 // Neural Interface</p>
+                <h3 className="text-white font-bold text-sm">Ballu AI</h3>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest">Systems Online</span>
+                </div>
               </div>
             </div>
-            <button
-              onClick={onClose}
-              className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all text-white/40 hover:text-white"
-            >
+            <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-full transition-colors text-[#9CA3AF] hover:text-white">
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-8 space-y-6 custom-scrollbar">
+          <div className="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
             {messages.map((message) => (
-              <motion.div
-                key={message.id}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[85%] p-5 rounded-[1.5rem] font-medium text-sm leading-relaxed ${message.sender === 'user'
-                    ? 'bg-[#4F9DFF] text-[#0B0B0F]'
-                    : 'bg-white/5 text-white/80 border border-white/5'
-                    }`}
-                >
+              <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed ${message.sender === 'user'
+                  ? 'bg-[#6366F1] text-white font-medium'
+                  : 'bg-white/5 text-[#D1D5DB] border border-white/5'
+                  }`}>
                   <p className="whitespace-pre-line">{message.text}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-
             {isTyping && (
-              <motion.div className="flex justify-start">
-                <div className="bg-white/5 p-4 rounded-full flex gap-1.5 px-6 border border-white/5">
+              <div className="flex justify-start">
+                <div className="bg-white/5 p-3 rounded-2xl border border-white/5 flex gap-1">
                   {[0, 1, 2].map(i => (
-                    <motion.div key={i} className="w-1 h-1 bg-[#4F9DFF] rounded-full" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }} />
+                    <motion.div key={i} className="w-1 h-1 bg-[#6366F1] rounded-full" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }} />
                   ))}
                 </div>
-              </motion.div>
+              </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}
-          <div className="p-8 border-t border-white/5">
-            <div className="flex gap-4">
+          <div className="p-6 border-t border-white/5 bg-white/[0.01]">
+            <div className="flex gap-2 p-1.5 bg-black/20 rounded-2xl border border-white/5">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="TYPE SYSTEM QUERY..."
-                className="flex-1 bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 text-xs font-mono uppercase tracking-widest outline-none focus:border-[#4F9DFF]/50 transition-colors"
+                placeholder="Ask about systems..."
+                className="flex-1 bg-transparent px-4 py-2 text-sm text-white outline-none placeholder:text-[#9CA3AF]/40"
               />
               <button
                 onClick={handleSend}
                 disabled={!input.trim()}
-                className="w-14 h-14 rounded-2xl bg-[#4F9DFF] hover:opacity-90 disabled:opacity-20 flex items-center justify-center transition-all shadow-[0_0_15px_rgba(79,157,255,0.3)]"
+                className="p-3 bg-[#6366F1] text-white rounded-xl hover:bg-[#4F46E5] disabled:opacity-20 disabled:hover:bg-[#6366F1] transition-all"
               >
-                <Send className="w-5 h-5 text-[#0B0B0F]" />
+                <Send className="w-4 h-4" />
               </button>
             </div>
           </div>

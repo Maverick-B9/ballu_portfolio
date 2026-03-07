@@ -20,10 +20,10 @@ export function ContactSection() {
       href: 'mailto:ballubalaram2003@gmail.com',
     },
     {
-      icon: Phone,
-      label: 'Phone',
-      value: '+91 9449114920',
-      href: 'tel:+919449114920',
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: 'balaram-b',
+      href: 'https://www.linkedin.com/in/balaram-b-022ba031b',
     },
     {
       icon: Github,
@@ -31,132 +31,98 @@ export function ContactSection() {
       value: 'Maverick-B9',
       href: 'https://github.com/Maverick-B9',
     },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'balaram-b',
-      href: 'https://www.linkedin.com/in/balaram-b-022ba031b',
-    },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! This is a demo form.');
-    setFormData({ name: '', email: '', message: '' });
+    window.location.href = `mailto:ballubalaram2003@gmail.com?subject=Portfolio Inquiry from ${formData.name}&body=${formData.message} (From: ${formData.email})`;
   };
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0F] via-[#1A1A1D] to-[#0B0B0F]" />
-
-      <div ref={ref} className="relative z-10 max-w-[1440px] mx-auto px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-24"
-        >
-          <h2 className="text-xs tracking-[0.8em] text-[#4F9DFF] mb-8 opacity-80 uppercase">
-            CONNECT
-          </h2>
-          <p className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-none mb-4">
-            LET'S BUILD SOMETHING <span className="text-[#4F9DFF]">INTELLIGENT</span> TOGETHER
-          </p>
-          <p className="text-white/40 text-xl font-light">
-            Available for worldwide collaborations and technical leadership.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Information */}
+    <section id="contact" className="relative py-24">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left: Content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-2xl text-white mb-8">Contact Information</h3>
-            {contactInfo.map((info, index) => (
-              <motion.a
-                key={index}
-                href={info.href}
-                target={info.href.startsWith('http') ? '_blank' : undefined}
-                rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="group flex items-center gap-4 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-[#4F9DFF]/50 transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#4F9DFF]/20 to-[#5A4FCF]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <info.icon className="w-6 h-6 text-[#4F9DFF]" />
-                </div>
-                <div>
-                  <p className="text-white/50 text-sm mb-1">{info.label}</p>
-                  <p className="text-white group-hover:text-[#4F9DFF] transition-colors">
-                    {info.value}
-                  </p>
-                </div>
-              </motion.a>
-            ))}
+            <h2 className="text-3xl font-bold text-white mb-6">
+              Let's Build Together
+            </h2>
+            <p className="text-[#9CA3AF] text-lg mb-12 font-medium max-w-md">
+              Currently available for technical collaborations, AI engineering roles, and innovative system architecture projects.
+            </p>
+
+            <div className="space-y-4">
+              {contactInfo.map((info, index) => (
+                <motion.a
+                  key={index}
+                  href={info.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-[#111111] border border-white/5 hover:border-[#6366F1]/40 transition-all duration-300 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#6366F1]/10 flex items-center justify-center text-[#6366F1] group-hover:bg-[#6366F1] group-hover:text-white transition-all">
+                    <info.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest">{info.label}</p>
+                    <p className="text-white font-medium">{info.value}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right: Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="p-8 rounded-[2.5rem] bg-[#111111] border border-white/5 relative overflow-hidden"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-white/70 mb-2">
-                  Name
-                </label>
+            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              <div className="space-y-2">
+                <label className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest ml-1">Name</label>
                 <input
                   type="text"
-                  id="name"
+                  required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  className="w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#4F9DFF]/50 transition-colors"
-                  placeholder="Your name"
+                  className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-[#6366F1]/50 transition-colors"
+                  placeholder="Your full name"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-white/70 mb-2">
-                  Email
-                </label>
+              <div className="space-y-2">
+                <label className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest ml-1">Email</label>
                 <input
                   type="email"
-                  id="email"
+                  required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  className="w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#4F9DFF]/50 transition-colors"
-                  placeholder="your@email.com"
+                  className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-[#6366F1]/50 transition-colors"
+                  placeholder="email@example.com"
                 />
               </div>
-              <div>
-                <label htmlFor="message" className="block text-white/70 mb-2">
-                  Message
-                </label>
+              <div className="space-y-2">
+                <label className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-widest ml-1">Message</label>
                 <textarea
-                  id="message"
+                  required
+                  rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  required
-                  rows={6}
-                  className="w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#4F9DFF]/50 transition-colors resize-none"
-                  placeholder="Your message..."
+                  className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-[#6366F1]/50 transition-colors resize-none"
+                  placeholder="Describe your project or inquiry..."
                 />
               </div>
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#4F9DFF] hover:bg-[#4F9DFF]/90 text-white transition-all"
+                className="w-full py-4 bg-[#6366F1] hover:bg-[#4F46E5] text-white font-bold rounded-2xl shadow-xl shadow-indigo-500/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
               >
-                <Send className="w-5 h-5" />
-                <span>Send Message</span>
+                <Send className="w-4 h-4" />
+                Send Message
               </button>
             </form>
           </motion.div>

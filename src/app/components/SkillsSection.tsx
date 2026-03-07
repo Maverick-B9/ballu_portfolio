@@ -5,23 +5,27 @@ import { useRef } from 'react';
 const SKILLS = [
     {
         category: 'Languages',
-        items: ['Python', 'JavaScript', 'TypeScript', 'Java', 'C'],
+        items: ['Python', 'C++', 'Java', 'JavaScript', 'TypeScript', 'SQL'],
     },
     {
-        category: 'Web Technologies',
-        items: ['React', 'Next.js', 'HTML5', 'CSS3', 'Tailwind'],
+        category: 'AI & Machine Learning',
+        items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Computer Vision', 'Gemini AI', 'YOLO'],
     },
     {
-        category: 'Backend',
-        items: ['Node.js', 'Express.js', 'Flask'],
+        category: 'Backend Engineering',
+        items: ['Node.js', 'Flask', 'Django', 'Express'],
     },
     {
-        category: 'Machine Learning',
-        items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'YOLOv8'],
+        category: 'Frontend Development',
+        items: ['React', 'Next.js', 'Tailwind CSS'],
     },
     {
-        category: 'Tools',
-        items: ['Git', 'Linux', 'NGINX', 'Postman'],
+        category: 'Infrastructure',
+        items: ['AWS (EC2, S3)', 'Git', 'Docker', 'CI/CD'],
+    },
+    {
+        category: 'Databases',
+        items: ['PostgreSQL', 'MongoDB', 'Firebase', 'Redis'],
     },
 ];
 
@@ -30,37 +34,40 @@ export function SkillsSection() {
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     return (
-        <section id="skills" className="relative py-32 overflow-hidden bg-white/[0.01]">
-            <div className="max-w-[1440px] mx-auto px-8">
+        <section id="skills" className="relative py-24 bg-white/[0.01] border-y border-white/5">
+            <div className="max-w-[1200px] mx-auto px-6">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8 }}
-                    className="mb-20 text-center"
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="mb-16"
                 >
-                    <h2 className="text-xs tracking-[0.8em] text-[#4F9DFF] mb-6 opacity-80 uppercase">
-                        TECHNICAL STACK
+                    <h2 className="text-3xl font-bold text-white mb-4">
+                        Technical Stack
                     </h2>
-                    <p className="text-white/40 text-2xl font-light">
-                        Specialized gear for <span className="text-white italic">intelligent system architecture</span>.
+                    <p className="text-[#9CA3AF] text-lg max-w-2xl font-medium">
+                        A specialized toolkit for building intelligent, scalable, and high-performance software systems.
                     </p>
                 </motion.div>
 
-                <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {SKILLS.map((skill, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            className="space-y-6"
+                            transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                            className="p-8 rounded-3xl bg-[#111111] border border-white/5 hover:border-[#6366F1]/30 transition-all duration-500 group"
                         >
-                            <h3 className="text-[10px] font-mono tracking-[0.3em] text-white/30 uppercase border-b border-white/5 pb-4">
+                            <h3 className="text-sm font-bold text-[#6366F1] uppercase tracking-[0.2em] mb-6 border-b border-white/5 pb-4">
                                 {skill.category}
                             </h3>
                             <div className="flex flex-wrap gap-2">
                                 {skill.items.map((item) => (
-                                    <span key={item} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs text-white/60 hover:text-white hover:border-[#4F9DFF]/30 transition-all cursor-default">
+                                    <span
+                                        key={item}
+                                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-xs text-[#9CA3AF] font-medium group-hover:text-white group-hover:bg-[#6366F1]/10 transition-all duration-300"
+                                    >
                                         {item}
                                     </span>
                                 ))}

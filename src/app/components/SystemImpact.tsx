@@ -26,44 +26,37 @@ export function SystemImpact() {
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     const stats = [
-        { number: 2500, suffix: '+', label: 'Students Participated in Live Auction' },
-        { number: 12, suffix: '+', label: 'Technical Workshops Organized' },
-        { number: 300, suffix: '+', label: 'Developer Community Members' },
-        { number: 32000, suffix: '+', label: 'Images Used for ML Training' },
+        { value: '12+', label: 'Technical Events Organized' },
+        { value: '2500+', label: 'Students in Live Auction' },
+        { value: '300+', label: 'Dev Community Members' },
+        { value: '6+', label: 'Real-World Systems Built' },
+        { value: 'Top 8', label: 'BIT Hackathon Finalist' },
     ];
 
     return (
-        <section id="impact" className="relative py-32 overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-24"
+        <section id="impact" className="relative py-24 pb-32 overflow-hidden border-y border-white/5 bg-white/[0.01]">
+            <div className="max-w-[1200px] mx-auto px-6">
+                <div
+                    ref={ref}
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6"
                 >
-                    <h2 className="text-xs tracking-[0.6em] text-[#4F9DFF] mb-6 opacity-80">
-                        SYSTEM IMPACT
-                    </h2>
-                    <p className="text-white/60 text-lg max-w-2xl mx-auto uppercase tracking-wider">
-                        Quantifying the reach of intelligent implementation
-                    </p>
-                </motion.div>
-
-                <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="text-center p-12 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-[#4F9DFF]/30 transition-all group"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                            className="relative group p-6 rounded-2xl bg-[#111111] border border-white/5 hover:border-[#6366F1]/30 transition-all duration-500 hover:translate-y-[-4px]"
                         >
-                            <div className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-tighter group-hover:text-[#4F9DFF] transition-colors duration-500">
-                                <Counter value={stat.number} suffix={stat.suffix} />
+                            <div className="text-3xl font-bold text-white mb-2 leading-none whitespace-nowrap">
+                                {stat.value}
                             </div>
-                            <div className="text-white/40 text-sm uppercase tracking-[0.2em] font-medium leading-relaxed">
+                            <div className="text-sm text-[#9CA3AF] leading-snug font-medium">
                                 {stat.label}
                             </div>
+
+                            {/* Subtle Glow on Hover */}
+                            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#6366F1]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                     ))}
                 </div>

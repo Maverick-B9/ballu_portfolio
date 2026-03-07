@@ -15,95 +15,68 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Depth Overlay */}
-      <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4F9DFF]/5 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#5A4FCF]/5 blur-[120px]" />
-      </div>
+    <section id="hero" className="relative min-h-[90vh] flex items-center overflow-hidden pt-32 pb-20">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      {/* AI Core Visual (Behind Content) */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-50">
+        {/* Left Side: Content */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2, ease: 'easeOut' }}
-          className="scale-150 md:scale-[2]"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-xl"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+            Balaram B
+          </h1>
+
+          <p className="text-xl md:text-2xl text-white font-medium mb-4 leading-relaxed">
+            Software Engineer building AI systems, real-time platforms, and scalable backend infrastructure.
+          </p>
+
+          <p className="text-lg text-[#9CA3AF] mb-10 leading-relaxed">
+            I build real-world technology — from digital forensic analysis tools to AI-powered agriculture platforms used by real communities.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4 mb-8">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="px-8 py-3.5 bg-[#6366F1] text-white rounded-xl hover:bg-[#4F46E5] transition-all hover:translate-y-[-2px] font-medium shadow-lg shadow-indigo-500/20"
+            >
+              View Projects
+            </button>
+            <a
+              href="/Balaram_B_Resume.pdf"
+              download
+              className="px-8 py-3.5 bg-[#1F1F1F] text-white rounded-xl border border-white/10 hover:bg-[#2A2A2A] transition-all hover:translate-y-[-2px] font-medium flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              Download Resume
+            </a>
+          </div>
+
+          <div className="text-sm text-[#9CA3AF] flex items-center gap-4">
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              Mysore, India
+            </span>
+            <span className="w-1 h-1 rounded-full bg-white/20" />
+            <span>Open to internships and collaborations</span>
+          </div>
+        </motion.div>
+
+        {/* Right Side: Visual */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, x: 30 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="hidden lg:flex items-center justify-center opacity-80"
         >
           <AICore />
         </motion.div>
       </div>
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-8 flex flex-col items-center">
-        {/* Content */}
-        <div className="text-center max-w-5xl mx-auto flex flex-col items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h1 className="text-8xl md:text-9xl lg:text-[10rem] font-bold text-white mb-4 leading-none tracking-tighter">
-              BALARAM B
-            </h1>
-            <h2 className="text-xl md:text-2xl text-[#4F9DFF] mb-12 tracking-[0.5em] font-medium opacity-90">
-              AI SYSTEMS ENGINEER
-            </h2>
-            <motion.p
-              className="text-xl md:text-2xl text-white/50 mb-16 max-w-2xl mx-auto leading-relaxed font-light"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.8 }}
-            >
-              AI systems engineer focused on building intelligent software platforms that combine machine learning, backend engineering, and scalable web infrastructure.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-wrap items-center justify-center gap-6 mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2 }}
-            >
-              <button
-                onClick={() => scrollToSection('why-i-build')}
-                className="group px-10 py-5 bg-white text-[#0B0B0F] rounded-full hover:bg-[#F5F5F7] transition-all flex items-center gap-3 font-semibold text-lg"
-              >
-                <span>Explore Systems</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                onClick={onChatOpen}
-                className="px-10 py-5 bg-white/5 text-white rounded-full hover:bg-white/10 backdrop-blur-xl border border-white/10 transition-all flex items-center gap-3 font-semibold text-lg"
-              >
-                <MessageSquare className="w-5 h-5 text-[#4F9DFF]" />
-                <span>Ask Balaram AI</span>
-              </button>
-              <a
-                href="/Balaram_B_Resume.pdf"
-                download
-                className="px-10 py-5 bg-transparent text-white/60 hover:text-white transition-all flex items-center gap-3 font-medium text-lg"
-              >
-                <Download className="w-5 h-5" />
-                <span>Download Resume</span>
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 2 }}
-      >
-        <motion.div
-          className="w-px h-12 bg-gradient-to-b from-white to-transparent"
-          animate={{ scaleY: [1, 0.5, 1], translateY: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-      </motion.div>
+      {/* Background Depth */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#6366F1]/5 to-transparent pointer-events-none -z-10" />
     </section>
   );
 }
-
