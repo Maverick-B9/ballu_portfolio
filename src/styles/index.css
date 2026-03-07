@@ -26,8 +26,8 @@
   }
 
   section {
-    @apply py-32 md:py-64;
-    /* Massive whitespace */
+    @apply py-48 md:py-80;
+    /* Massive whitespace for Apple-style elegance */
   }
 }
 

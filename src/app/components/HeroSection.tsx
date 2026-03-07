@@ -46,16 +46,15 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
               BALARAM B
             </h1>
             <h2 className="text-xl md:text-2xl text-[#4F9DFF] mb-12 tracking-[0.5em] font-medium opacity-90">
-              COMPUTER SCIENCE ENGINEER
+              AI SYSTEMS ENGINEER
             </h2>
-
             <motion.p
               className="text-xl md:text-2xl text-white/50 mb-16 max-w-2xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.8 }}
             >
-              Building intelligent platforms, developer tools, and real-world technology systems.
+              Building intelligent platforms, developer tools, and real-world software systems.
             </motion.p>
 
             <motion.div

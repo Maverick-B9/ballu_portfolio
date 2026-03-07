@@ -14,23 +14,23 @@ const MILESTONES = [
         year: '2023 - 2024',
     },
     {
-        title: 'Hosted Live Auction for 2500+ Students',
+        title: 'Hosted an Auction for 2500+ Students',
         description: 'Managed real-time auction platform architecture for massive concurrent attendance.',
         year: '2024',
     },
     {
-        title: 'Built Developer Community of 300+ Students',
+        title: 'Built a Developer Community of 300+ Students',
         description: 'Mentoring and fostering a vibrant technology ecosystem for modern developers.',
         year: '2023 - Present',
     },
     {
-        title: 'Collaborated with GeekWick',
+        title: 'Collaborated with GeekWick on IndeAminds',
         description: 'Engineered the IndeAminds platform through strategic industry partnership.',
         year: '2024',
     },
     {
-        title: 'Developed Multiple Real-World Software Platforms',
-        description: 'Consistently delivering production-ready systems for real-world impact.',
+        title: 'Earned Multiple Technical Certifications',
+        description: 'Validated expertise through industry-standard AI and Software Engineering protocols.',
         year: 'Ongoing',
     },
 ];
