@@ -13,6 +13,9 @@ import { ChatBot } from './components/ChatBot';
 import { ChatbotButton } from './components/ChatbotButton';
 import { BootSequence } from './components/BootSequence';
 import { Starfield } from './components/Starfield';
+import { FeaturedProject } from './components/FeaturedProject';
+import { Achievements } from './components/Achievements';
+import { SkillsSection } from './components/SkillsSection';
 
 export default function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -43,10 +46,13 @@ export default function App() {
       {/* Main Content */}
       <main className="relative z-10">
         <HeroSection onChatOpen={() => setIsChatOpen(true)} />
-        <WhyIBuild />
+        <FeaturedProject />
         <SystemImpact />
+        <WhyIBuild />
         <SystemsBuilt />
         <LeadershipTimeline />
+        <Achievements />
+        <SkillsSection />
         <GitHubPanel />
         <DeveloperTerminal />
         <ContactSection />

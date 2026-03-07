@@ -54,7 +54,7 @@ export function HeroSection({ onChatOpen }: HeroSectionProps) {
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.8 }}
             >
-              Building intelligent platforms, developer tools, and real-world software systems.
+              AI systems engineer focused on building intelligent software platforms that combine machine learning, backend engineering, and scalable web infrastructure.
             </motion.p>
 
             <motion.div

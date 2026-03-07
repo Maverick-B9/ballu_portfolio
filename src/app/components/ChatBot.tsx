@@ -26,9 +26,9 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const quickQuestions = [
-    'Who is Balaram?',
-    'What projects has he built?',
-    'What technologies does he know?',
+    'What projects has Balaram built?',
+    'What technologies does he specialize in?',
+    'What is Krishi Sarathi?',
     'How can I contact him?',
   ];
 
@@ -46,15 +46,15 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
     const lowerMessage = userMessage.toLowerCase();
 
     if (lowerMessage.includes('who') || lowerMessage.includes('about')) {
-      return "Balaram B is an AI Systems Engineer and Computer Science student. He specializes in building intelligent platforms, developer tools, and real-world technology systems.";
-    } else if (lowerMessage.includes('project') || lowerMessage.includes('system') || lowerMessage.includes('build')) {
-      return "Balaram has built several intelligent systems, including:\n- Digital Forensic Tool\n- Krishi Saathi (Agri-AI)\n- Maasakhi (Women's Safety)\n- Verto (Process Management)\n- Live Auction System (2500+ users)\n- Placement Portal\n- IndeAminds Collaborations.";
-    } else if (lowerMessage.includes('tech') || lowerMessage.includes('skill') || lowerMessage.includes('know')) {
-      return "His technical arsenal includes:\n- Languages: Python, Java, C, MySQL\n- AI: Machine Learning, Computer Vision, AI Systems\n- Frameworks: Flask, TensorFlow, React.";
-    } else if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('how')) {
-      return "You can reach Balaram through:\n📧 ballubalaram2003@gmail.com\n💼 linkedin.com/in/balaram-b-022ba031b\n🔗 github.com/Maverick-B9";
+      return "Balaram B is an AI Systems Engineer specializing in building intelligent platforms, developer tools, and scalable machine learning infrastructure.";
+    } else if (lowerMessage.includes('project') || lowerMessage.includes('system') || lowerMessage.includes('build') || lowerMessage.includes('sarathi')) {
+      return "Balaram's key systems include:\n- Krishi Sarathi (AI Agri-Platform): Trained EfficientNet-B0 on 32k images, 90.7% accuracy.\n- MaaSakhi: AI maternal health assistant predicting clinical risks.\n- Live Auction System: Deployed for 2500+ attendees with sub-second latency.\n- Digital Forensic Tool: SHA-256 metadata extraction and entropy analysis.";
+    } else if (lowerMessage.includes('tech') || lowerMessage.includes('skill') || lowerMessage.includes('specialize')) {
+      return "He specializes in:\n- Machine Learning: TensorFlow, PyTorch, YOLOv8, Scikit-learn.\n- Languages: Python, JavaScript, TypeScript, Java, C.\n- Backend: Node.js, Express, Flask, MySQL.";
+    } else if (lowerMessage.includes('contact') || lowerMessage.includes('email')) {
+      return "Protocols for direct communication:\n📧 ballubalaram2003@gmail.com\n💼 linkedin.com/in/balaram-b-022ba031b\n🔗 github.com/Maverick-B9";
     } else {
-      return "SYSTEM_QUERY_RECOGNIZED: I can provide details on Balaram's identity, systems built, technical skills, or contact protocols. Please specify your request.";
+      return "SYSTEM_QUERY_RECOGNIZED: I can provide specifications on Balaram's identity, specialized projects like KRISHI SARATHI, technical stack, or contact protocols.";
     }
   };
 
