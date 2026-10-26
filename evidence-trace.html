@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07080a">
+  <meta name="description" content="Evidence / Trace case study: a 6-module digital forensic investigation platform in Python, Flask and MySQL with hashing, entropy analysis, RBAC and audit logging.">
+  <title>Evidence / Trace — Balaram B.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>(function(d){d.classList.add("js");try{if(CSS.supports("animation-timeline","scroll()"))d.classList.add("sd")}catch(e){}})(document.documentElement)</script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body data-project="forensics" class="case theme-forensics">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <canvas class="fx-wake" aria-hidden="true"></canvas>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Balaram B., home"><span class="brand-mark">B.</span><span class="brand-name">BALARAM B.<small>FULL-STACK DEVELOPER</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="menu-label">MENU</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
+    <nav id="nav-links" class="nav-links" aria-label="Main navigation">
+      <a href="index.html"><b>00</b>HOME</a>
+      <a href="index.html#work" ><b>01</b>WORK</a>
+      <a href="about.html"><b>02</b>ABOUT</a>
+      <a href="about.html#resume"><b>↓</b>RESUME</a>
+      <a href="contact.html"><b>03</b>CONTACT</a>
+    </nav>
+  </header>
+  <main id="main"><span id="top"></span>
+    <section class="case-hero">
+      <div>
+        <p class="crumbs"><a href="index.html">HOME</a><span>/</span><a href="index.html#work">WORK</a><span>/</span>EVIDENCE / TRACE</p>
+        <p class="case-type">DIGITAL FORENSICS / WEB APPLICATION</p>
+        <h1 data-split>EVIDENCE / TRACE</h1>
+        <p class="case-lede">A digital forensic investigation platform that keeps evidence organised, traceable and tamper-evident from acquisition to report.</p>
+        <dl class="case-facts"><div><dt>CONTEXT</dt><dd>University project</dd></div><div><dt>STACK</dt><dd>Python · Flask · MySQL</dd></div><div><dt>MODULES</dt><dd>6</dd></div><div><dt>FOCUS</dt><dd>Integrity and traceability</dd></div></dl>
+      </div>
+      <div class="case-art" aria-hidden="true"><div class="ill-for" style="--ch:230px" aria-hidden="true"><i class="dash"></i><div class="card c1"><span>CASE 0412</span><i></i><i></i></div><div class="card c2"><span>SHA-256</span><i></i><i></i><i></i></div><div class="card c3"><span>EVIDENCE</span><b>0x7F A2 19</b><i></i><i></i><i></i></div><i class="scan"></i></div></div>
+    </section>
+
+    <section class="case-sec">
+      <div class="sec-head"><h2 data-split><span class="sec-no">01</span>THE PROBLEM</h2><div class="sec-body"><p><strong>Investigative evidence needs organised handling, traceability and clear technical context.</strong></p><p>If you cannot show that a file has not changed, and who touched it and when, the evidence loses its value. The platform is built around answering those two questions at every step.</p></div></div>
+    </section>
+
+    <section class="case-sec alt">
+      <div class="sec-head"><h2 data-split><span class="sec-no">02</span>THE APPROACH</h2><div class="sec-body"><p>A <strong>6-module</strong> web platform covering <strong>acquisition, hashing, entropy analysis and reporting</strong>, on a <strong>MySQL</strong> backend with <strong>Flask</strong>.</p><p><strong>MD5, SHA-256 and SHA-512</strong> hashes provide tamper detection: if a file changes, its hash no longer matches. <strong>Role-based access control</strong> limits what each user can do, and <strong>audit logging</strong> records actions. <strong>Investigator-ready dashboards</strong> pull it together.</p></div></div>
+      <div class="figures"><div class="fig"><b>6</b><span>MODULES IN THE PLATFORM</span></div><div class="fig"><b>3</b><span>HASH ALGORITHMS: MD5, SHA-256, SHA-512</span></div><div class="fig"><b>RBAC</b><span>ROLE-BASED ACCESS CONTROL</span></div><div class="fig"><b>AUDIT</b><span>LOGGING OF ACTIONS</span></div></div>
+    </section>
+
+    <section class="case-sec">
+      <div class="sec-head"><h2 data-split><span class="sec-no">03</span>HOW IT<br>WORKS</h2><div class="sec-body"><p>A simplified view of the flow, step by step.</p></div></div>
+      <ol class="flow" style="--n:4"><li><h3>Acquire</h3><p>Evidence is brought into the platform as a record.</p></li><li><h3>Hash</h3><p>MD5, SHA-256 and SHA-512 fingerprints are stored for tamper detection.</p></li><li><h3>Analyse</h3><p>Entropy analysis adds technical context about the content.</p></li><li><h3>Report</h3><p>Findings are presented on investigator-ready dashboards and reports.</p></li></ol>
+      <div class="flow-extra"><div><b>ACROSS EVERY STEP</b>Role-based access control decides who can do what.</div><div><b>ALSO ACROSS EVERY STEP</b>Audit logging records actions for traceability.</div></div>
+      <p class="diagram-note">ILLUSTRATIVE DIAGRAM · BUILT FOR THIS SITE · NOT THE ORIGINAL SYSTEM</p>
+    </section>
+
+    <section class="case-sec alt">
+      <div class="sec-head"><h2 data-split><span class="sec-no">04</span>TRY<br>THE IDEA</h2><div class="sec-body"><p class="sim-intro">A synthetic evidence timeline built with demonstration data. Hover or tap an event to pin it and inspect its card. None of this is a real evidence record.</p></div></div>
+      <div class="sim-wrap"><div class="world-sim" data-sim="forensics"></div></div>
+    </section>
+
+    <section class="case-sec">
+      <div class="sec-head"><h2 data-split><span class="sec-no">05</span>BUILT<br>WITH</h2><div class="sec-body"><div class="tool-tags"><span>PYTHON</span><span>FLASK</span><span>MYSQL</span><span>MD5 / SHA-256 / SHA-512</span><span>RBAC</span><span>AUDIT LOGGING</span></div><p class="diagram-note" style="margin-top:28px">BUILT AS A UNIVERSITY PROJECT. THE TIMELINE AND DIAGRAM USE SYNTHETIC DEMONSTRATION DATA, NOT A REAL EVIDENCE RECORD.</p></div></div>
+    </section>
+
+    <nav class="case-next" aria-label="Other projects"><a href="semais.html"><span class="mono">← PREVIOUS</span><strong>SEMAIS</strong></a><a href="auction-room.html"><span class="mono">NEXT →</span><strong>THE AUCTION ROOM</strong></a></nav>
+    <section class="case-cta"><h2>Want something like this built?</h2><div class="cta-actions"><a class="button button-light" href="contact.html">GET IN TOUCH <span>↗</span></a><a class="text-link" href="index.html#work">ALL PROJECTS <span>→</span></a></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="brand" href="index.html" aria-label="Balaram B., home"><span class="brand-mark">B.</span><span class="brand-name">BALARAM B.<small>FULL-STACK DEVELOPER</small></span></a><p>Full-stack developer in Mysore, Karnataka. React, Next.js, Node, Flask, MySQL and AI/ML.</p><a class="mail" href="mailto:ballubalaram2003@gmail.com">ballubalaram2003@gmail.com</a></div>
+      <nav aria-label="Site"><h2>SITE</h2><a href="index.html">Home</a><a href="about.html">About</a><a href="about.html#resume">Resume</a><a href="contact.html">Contact</a></nav>
+      <nav aria-label="Work"><h2>WORK</h2><a href="semais.html">SEMAIS</a><a href="evidence-trace.html">Evidence / Trace</a><a href="auction-room.html">The Auction Room</a><a href="vrkshsaathi.html">VrkshSaathi</a></nav>
+      <nav aria-label="Legal"><h2>LEGAL</h2><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookies.html">Cookies</a><a href="accessibility.html">Accessibility</a></nav>
+    </div>
+    <div class="foot-base"><span>© 2026 BALARAM B. · ALL RIGHTS RESERVED</span><span>NO COOKIES · NO ANALYTICS · NO TRACKERS</span><a href="#top">BACK TO TOP ↑</a></div>
+  </footer>
+  <div class="cursor-aura" aria-hidden="true"></div>
+  <script src="script.js"></script>
+  <script src="motion.js"></script>
+</body>
+</html>
